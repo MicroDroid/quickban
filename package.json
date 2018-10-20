@@ -1,0 +1,37 @@
+{
+  "name": "quickban",
+  "version": "0.1.0",
+  "description": "A bot that auto-bans idiots",
+  "main": "bot.js",
+  "scripts": {
+    "prod": "cross-env NODE_ENV=production node bot.js",
+    "dev": "cross-env NODE_ENV=production node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MicroDroid/quickban.git"
+  },
+  "keywords": [
+    "ban",
+    "autoban",
+    "idiots",
+    "spammers",
+    "spam",
+    "discord",
+    "links",
+    "discord.gg"
+  ],
+  "author": "Yousef Sultan <yousef.su.2000@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MicroDroid/quickban/issues"
+  },
+  "homepage": "https://github.com/MicroDroid/quickban#readme",
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.1.0",
+    "eris": "^0.9.0",
+    "eslint": "^5.7.0",
+    "good-logger": "^0.1.0"
+  }
+}
