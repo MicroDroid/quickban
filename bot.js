@@ -2,9 +2,24 @@ require('dotenv').config();
 
 const Eris = require('eris');
 const logger = require('good-logger');
+const axios = require('axios');
 
 const inviteLink = `https://discordapp.com/oauth2/authorize?client_id=${process.env.CLIENT_ID}&scope=bot&permissions=67590`;
 const bot = new Eris(process.env.TOKEN);
+
+setInterval(() => {
+	logger.info('Updating DBL stats');
+
+	axios.post(`https://discordbotlist.com/api/bots/${process.env.CLIENT_ID}/stats`, {
+		shard_id: 0,
+		guilds: bot.guilds.size,
+		users: bot.users.size,
+	}, {
+		headers: {
+			Authorization: `Bot ${process.env.DBL_TOKEN}`,
+		}
+	}).catch(logger.err);
+}, 120 * 1000);
 
 bot.on('ready', () => {
 	logger.info('Connected!');
