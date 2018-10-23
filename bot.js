@@ -32,7 +32,7 @@ bot.on('messageCreate', msg => {
 });
 
 bot.on('guildMemberAdd', (guild, member) => {
-	if (member.username.match(/[\d\w]+.[\d\w]{2,}\/.+/)) {
+	if (member.username.match(/[\d\w]+.[\d\w]{2,}\/.+/g)) {
 		guild.banMember(member.id, 1, 'Appears to be spam').then(() => {
 			logger.info(`Banned member: ${member.id} (${member.username}#${member.discriminator}) from ${guild.id} (${guild.name})`);
 		}).catch(() => {
